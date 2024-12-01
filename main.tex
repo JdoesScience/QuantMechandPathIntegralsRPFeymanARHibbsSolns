@@ -509,6 +509,113 @@ but this is the same form as (7.24) and we immediately see from the term in the 
 %\centering
 \end{figure}
 
+%Section 8
+\section{Harmonic Oscillator}
+
+%Section 9
+\section{Quantum Electrodynamics}
+
+%Section 10
+\section{Statistical Mechanics}
+
+%Section 11
+\section{The Variational Method}
+
+%Section 12
+\section{Other Problems in Probability}
+
+\subsection{Part 1}
+
+\subsection{Part 2}
+
+\subsection{Part 3}
+
+\subsection{Part 4}
+
+\subsection{Part 5}
+
+\subsection{Brownian Motion}
+
+\textbf{Problem 12-2}
+Show that the constant required to normalize the probability function  $P(D,\theta)dD d \theta$ is 
+
+$const = \sqrt{\frac{6}{\pi R T^3}}\sqrt{\frac{1}{2\pi RT}}$
+
+
+\textbf{Solution:} 
+It is helpful to consult the table of integrals given in the Appendix, especially (A.1)
+
+We will make many uses of the following Gaussian integral: 
+
+\begin{align*}
+         \int_{-\infty}^{\infty} \exp(-a(x + b)^2)dx &= \sqrt{\frac{\pi}{a}}
+\end{align*}
+
+where $a$ is a non-zero real number. This result is derived and/or proven in a myriad of different physics and mathematics textbooks, so we won't go into a detailed explanation of this integral here. 
+
+The normalized distribution for $P$ should satisfy 
+
+\begin{align*}
+    \frac{1}{const} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} P(D,\theta)dD d\theta &= 1    
+\end{align*}
+
+Therefore, solving the integral and inverting will give the required constant. 
+
+Using $P$ as given in (12.76), 
+
+\begin{align*}
+    P(D, \theta) &= \exp{-\frac{6}{RT^3}(D - \frac{\theta T}{2})^2 - \frac{\theta ^2}{2RT} }
+\end{align*}
+
+we perform the integration 
+
+\begin{align*}
+    \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} P(D,\theta)dD d\theta &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \exp{-\frac{6}{RT^3}(D - \frac{\theta T}{2})^2 - \frac{\theta ^2}{2RT} } dD d\theta \\
+    & = \int_{-\infty}^{\infty} \Big( \int_{-\infty}^{\infty} \exp{-\frac{6}{RT^3}(D - \frac{\theta T}{2})^2 } dD \Big) \exp{ - \frac{\theta ^2}{2RT} } d\theta 
+\end{align*}
+
+where we have interchanged the integrals by using Fubini's theorem to inter-change the order of integration. 
+
+First, we evaluate the inner integral in brackets, noting that we will use the "Gaussian Integral" mentioned above by setting $a = \frac{6}{RT^3}$ and $b = -\frac{\theta T}{2}$ giving 
+
+\begin{align*}
+    \int_{-\infty}^{\infty} \exp{-\frac{6}{RT^3}(D - \frac{\theta T}{2})^2 } dD &= \sqrt{\frac{\pi}{(6 / RT^3)}} \\
+    &= \sqrt{\frac{\pi RT^3}{6 }}
+\end{align*}
+
+Our integral is now
+
+\begin{align*}
+    \int_{-\infty}^{\infty} \Big( \int_{-\infty}^{\infty} \exp{-\frac{6}{RT^3}(D - \frac{\theta T}{2})^2 } dD \Big) \exp{ - \frac{\theta ^2}{2RT} } d\theta &= \sqrt{\frac{\pi RT^3}{6 }} \int_{-\infty}^{\infty} \exp{ - \frac{\theta ^2}{2RT} } d\theta   
+\end{align*}
+
+Next, we evaluate the second integral. This integral is also Gaussian and we again make use of the Guassian integral mentioned above, this time by setting $a = \frac{1}{2RT}$ and $b = 0$ to get 
+
+\begin{align*}
+    \int_{-\infty}^{\infty} \exp{ - \frac{\theta ^2}{2RT} } d\theta &= \sqrt{\frac{\pi}{(1/2RT)}} \\
+    &= \sqrt{2\pi RT} 
+\end{align*}
+
+Thus our integral ultimately evaluates to 
+
+\begin{align*}
+    \frac{1}{const} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} P(D,\theta)dD d\theta &= \sqrt{\frac{\pi RT^3}{6 }} \sqrt{2\pi RT}     
+\end{align*}
+
+so that $\frac{1}{const}$ is given by
+
+\begin{align*}
+    \frac{1}{const} &= \sqrt{\frac{\pi RT^3}{6}} \sqrt{2\pi RT}     
+\end{align*}
+
+and upon inverting gives 
+
+\begin{align*}
+    const &= \sqrt{\frac{6}{\pi RT^3}} \sqrt{\frac{1}{2\pi RT}}     
+\end{align*}
+
+which is the required constant for normalization. 
+
 
 \section{Conclusion}
 ``I always thought something was fundamentally wrong with the universe'' \citep{adams1995hitchhiker}
